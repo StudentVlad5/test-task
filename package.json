@@ -4,20 +4,30 @@
   "private": true,
   "homepage": "https://studentvlad5.github.io/test-task/",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "framer-motion": "^2.3.0",
+    "gsap": "^3.4.2",
+    "lottie-web": "^5.7.1",
+    "node-sass": "^4.14.1",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-animated-cursor": "^2.1.5",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3",
+    "react-use": "^15.3.3",
+    "yarn": "^1.22.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3000 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --all",
-    "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
