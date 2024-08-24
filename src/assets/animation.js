@@ -1,71 +1,47 @@
-import gsap from 'gsap';
+import { gsap } from "gsap";
+import { Flip } from "gsap/all";
+const allCheckbox = document.getElementById("all");
+let filters = gsap.utils.toArray(".filter");
+let items = gsap.utils.toArray(".item");
+console.log("filters", filters);
+console.log("items", items);
 
-// OPEN MENU
-export const staggerReveal = (node1, node2) => {
-   gsap.from([node1, node2], {
-      duration: 0.6,
-      height: 0,
-      transformOrigin: 'left top',
-      skewY: 0,
-      ease: 'power3.inOut',
-      stagger: {
-         amount: 0.2,
-      },
-   });
-};
+export function updateFilters() {
+  const state = Flip.getState(items), // get the current state
+    classes = filters
+      .filter((checkbox) => checkbox.checked)
+      .map((checkbox) => "." + checkbox.id),
+    matches = classes.length ? gsap.utils.toArray(classes.join(",")) : classes;
 
-// CLOSE MENU
-export const staggerRevealClose = (node1, node2) => {
-   gsap.to([node1, node2], {
-      duration: 0.8,
-      height: 0,
-      ease: 'power3.inOut',
-      stagger: {
-         amount: 0.09,
-      },
-   });
-};
+  // adjust the display property of each item ("none" for filtered ones, "inline-flex" for matching ones)
+  items.forEach(
+    (item) =>
+      (item.style.display =
+        matches.indexOf(item) === -1 ? "none" : "inline-flex")
+  );
 
-// STAGGER THE LINKS TO APPEAR
-export const staggerText = (node1, node2, node3, node4, node5) => {
-   gsap.from([node1, node2, node3, node4, node5], {
-      duration: 0.9,
-      y: 100,
-      delay: 0.3,
-      ease: 'power3.inOut',
-      stagger: {
-         amount: 0.4,
-      },
-   });
-};
+  // animate from the previous state
+  Flip.from(state, {
+    duration: 1,
+    scale: true,
+    absolute: true,
+    ease: "power1.inOut",
+    onEnter: (elements) =>
+      gsap.fromTo(
+        elements,
+        { opacity: 0, scale: 0 },
+        { opacity: 1, scale: 1, duration: 1 }
+      ),
+    onLeave: (elements) =>
+      gsap.to(elements, { opacity: 0, scale: 0, duration: 1 }),
+  });
 
-// Fade up for the additonal info on our menu
-export const fadeInUp = (node) => {
-   gsap.from(node, {
-      y: 10,
-      duration: 0.1,
-      delay: 0.2,
-      opacity: 0,
-      ease: 'power3.inOut',
-   });
-};
+  // Update the all checkbox:
+  allCheckbox.checked = matches.length === items.length;
+}
 
-// Hover on the link
-export const handleHover = (e) => {
-   gsap.to(e.target, {
-      duration: 0.3,
-      y: 3,
-      skewX: 10,
-      ease: 'power1.inOut',
-   });
-};
-
-// Hover off the link
-export const handleHoverExit = (e) => {
-   gsap.to(e.target, {
-      duration: 0.6,
-      y: 3,
-      skewX: 0,
-      ease: 'power1.inOut',
-   });
-};
+// filters.forEach((btn) => btn.addEventListener("click", updateFilters));
+// allCheckbox.addEventListener("click", () => {
+//   filters.forEach((checkbox) => (checkbox.checked = allCheckbox.checked));
+//   updateFilters();
+// });

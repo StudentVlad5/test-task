@@ -1,39 +1,26 @@
 {
-  "name": "test-task",
-  "version": "0.0.1",
-  "private": true,
+  "name": "test animation",
+  "version": "1.0.0",
+  "description": "test animation",
   "homepage": "https://studentvlad5.github.io/test-task/",
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "express": "^4.17.1",
-    "express-favicon": "^2.0.1",
-    "framer-motion": "^2.3.0",
-    "gsap": "^3.4.2",
-    "lottie-web": "^5.7.1",
-    "node-sass": "^4.14.1",
-    "path": "^0.12.7",
-    "react": "^16.13.1",
-    "react-animated-cursor": "^2.1.5",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
-    "react-use": "^15.3.3",
-    "yarn": "^1.22.5"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "PORT=3000 react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "react": "^18.3.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react-scripts": "^3.4.3"
   },
   "browserslist": {
     "production": [
@@ -46,8 +33,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "ajv": "^7.2.4"
   }
 }
