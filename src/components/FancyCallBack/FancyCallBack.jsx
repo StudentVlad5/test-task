@@ -16,10 +16,10 @@ export const ComponentFancy = () => {
   }, [setVisible]);
 
   return (
-    <dic className="container">
+    <div className="container">
       <h2>What is React?</h2>
       <FancyBatton onClick={handlClick}>Toggle</FancyBatton>
       {visible && <p>ANSWER</p>}
-    </dic>
+    </div>
   );
 };

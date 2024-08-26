@@ -5,6 +5,7 @@ import { Context } from "./assets/hooks/useContext";
 import { Counter } from "./components/Counter/Counter";
 import { ConsoleCount } from "./components/ButtonConsole/ButtonConsoleCount";
 import { ComponentFancy } from "./components/FancyCallBack/FancyCallBack";
+import { PrimeNumUseMemo } from "./components/PrimeNumUseMemo/PrimeNumUseMemo";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -42,6 +43,7 @@ function App() {
       <Counter />
       <ConsoleCount />
       <ComponentFancy />
+      <PrimeNumUseMemo />
     </Context.Provider>
   );
 }
